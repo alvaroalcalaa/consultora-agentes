@@ -56,15 +56,28 @@ evals/                     Casos de prueba y criterios de calidad
 | Estrategia | `plan-estrategico-okrs` (incluye seguimiento mensual) | ✅ v1 |
 | Estrategia | `analisis-mercado-competencia` | ✅ v1 |
 | Operaciones | `diagnostico-procesos-operaciones` | ✅ v1 |
-| Operaciones | plan de mejora lean · cuadro de indicadores | ⏳ pendiente |
+| Operaciones | `plan-mejora-lean` | ✅ v1 |
+| Operaciones | `cuadro-indicadores-operativos` | ✅ v1 |
 | Cultura y Talento | `diagnostico-clima-cultura` | ✅ v1 |
-| Cultura y Talento | dinámicas y talleres · onboarding y desarrollo | ⏳ pendiente |
+| Cultura y Talento | `diseno-dinamicas-talleres` | ✅ v1 |
+| Cultura y Talento | `plan-onboarding-desarrollo` | ✅ v1 |
 | Agilidad / OPEX | `evaluacion-madurez-agil` | ✅ v1 |
-| Agilidad / OPEX | métricas de flujo y mejora continua · plan de transformación | ⏳ pendiente |
+| Agilidad / OPEX | `sistema-mejora-continua` (incluye servicio mensual) | ✅ v1 |
+| Agilidad / OPEX | `plan-transformacion-agil` | ✅ v1 |
 | Tech | `diagnostico-digitalizacion` | ✅ v1 |
-| Tech | propuesta de solución con agentes | ⏳ pendiente |
+| Tech | `propuesta-solucion-agentes` | ✅ v1 |
 
 Todas las skills v1 están sin probar con casos reales: pásalas por sus evals (`evals/<skill>.json`) antes de usarlas con clientes.
+
+## Automatizaciones (GitHub Actions)
+
+| Automatización | Cuándo | Qué deja |
+|---|---|---|
+| `linkedin-diario.yml` | Lunes a viernes, 8:00 | Pull Request con un borrador de post en `contenido/linkedin/` |
+| `skill-semanal.yml` | Lunes, 7:00 | Pull Request con una skill pendiente o, si no hay, una mejora de una skill existente |
+
+Nada se publica sin tu revisión: aceptas (Merge) o descartas (Close) cada Pull Request.
+Se pueden lanzar a mano desde la pestaña **Actions → Run workflow**.
 
 ## Pendiente
 - [ ] `precios.md` con el catálogo de tarifas (lo usa el subagente de propuestas)
