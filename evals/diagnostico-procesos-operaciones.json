@@ -1,0 +1,20 @@
+{
+  "skill_name": "diagnostico-procesos-operaciones",
+  "evals": [
+    {
+      "id": 1,
+      "name": "plazos-entrega",
+      "prompt": "Una fábrica de 120 personas incumple el 30% de los plazos de entrega. Nos pasan datos de pedidos y producción de 6 meses.",
+      "expected_output": "VSM con lead time calculado desde datos; cuello de botella demostrado; quick wins y plan priorizado con ahorros marcados como estimación.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "sin-datos",
+      "prompt": "Queremos mejorar la productividad del almacén, pero no tenemos datos.",
+      "expected_output": "Propone toma de tiempos o muestreo antes de concluir; no inventa tiempos.",
+      "files": []
+    }
+  ],
+  "criterios": "Ver evals/criterios-comunes.md"
+}

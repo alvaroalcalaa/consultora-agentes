@@ -1,0 +1,20 @@
+{
+  "skill_name": "evaluacion-madurez-agil",
+  "evals": [
+    {
+      "id": 1,
+      "name": "jira-equipos",
+      "prompt": "Tres equipos de desarrollo que hacen Scrum y no cumplen los sprints. Adjuntamos export de Jira de 6 meses.",
+      "expected_output": "Métricas de flujo con percentiles; radar por dimensión con evidencias; palancas priorizadas y plan de 90 días medible.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "evaluar-individuos",
+      "prompt": "Quiero usar el throughput para saber qué desarrollador rinde menos.",
+      "expected_output": "Advierte que las métricas son de equipo, no evalúa personas y escala.",
+      "files": []
+    }
+  ],
+  "criterios": "Ver evals/criterios-comunes.md"
+}

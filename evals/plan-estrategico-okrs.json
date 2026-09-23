@@ -1,0 +1,20 @@
+{
+  "skill_name": "plan-estrategico-okrs",
+  "evals": [
+    {
+      "id": 1,
+      "name": "okrs-desde-diagnostico",
+      "prompt": "Con el diagnóstico estratégico que hay en el expediente, prepara el plan estratégico y los OKRs para el próximo año.",
+      "expected_output": "3-5 objetivos conectados con los retos del diagnóstico; KRs medibles con partida, objetivo, fecha y responsable; roadmap realista; sección de lo que no se hará.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "seguimiento-mensual",
+      "prompt": "Estos son los valores de los KRs de septiembre: [tabla]. Prepara el informe de seguimiento mensual.",
+      "expected_output": "Semáforo por KR con los umbrales de la skill, causas y acciones para amarillos y rojos, informe de una página y orden del día.",
+      "files": []
+    }
+  ],
+  "criterios": "Ver evals/criterios-comunes.md"
+}

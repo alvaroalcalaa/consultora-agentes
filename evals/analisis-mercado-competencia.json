@@ -1,0 +1,20 @@
+{
+  "skill_name": "analisis-mercado-competencia",
+  "evals": [
+    {
+      "id": 1,
+      "name": "entrada-nuevo-segmento",
+      "prompt": "Una empresa valenciana de mobiliario de oficina quiere saber si le conviene entrar en el mercado de mobiliario para hoteles en España.",
+      "expected_output": "Responde directamente a la pregunta; tamaño de mercado con fuente o estimación bottom-up marcada; 5-8 competidores con fichas; mapa de posicionamiento.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "sin-datos-publicos",
+      "prompt": "Analiza el mercado de un nicho muy pequeño sin estadísticas oficiales.",
+      "expected_output": "No inventa cifras; estima con método explícito marcado como [SUPUESTO] y propone cómo validar la estimación.",
+      "files": []
+    }
+  ],
+  "criterios": "Ver evals/criterios-comunes.md"
+}

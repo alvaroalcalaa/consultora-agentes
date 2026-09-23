@@ -53,12 +53,18 @@ evals/                     Casos de prueba y criterios de calidad
 | Área | Skill | Estado |
 |---|---|---|
 | Estrategia | `diagnostico-estrategico-express` | ✅ v1 |
-| Estrategia | `plan-estrategico-okrs` | ⏳ pendiente |
-| Estrategia | `analisis-mercado-competencia` | ⏳ pendiente |
-| Operaciones | — | ⏳ |
-| Cultura y Talento | — | ⏳ |
-| Agilidad / OPEX | — | ⏳ |
-| Tech | — | ⏳ |
+| Estrategia | `plan-estrategico-okrs` (incluye seguimiento mensual) | ✅ v1 |
+| Estrategia | `analisis-mercado-competencia` | ✅ v1 |
+| Operaciones | `diagnostico-procesos-operaciones` | ✅ v1 |
+| Operaciones | plan de mejora lean · cuadro de indicadores | ⏳ pendiente |
+| Cultura y Talento | `diagnostico-clima-cultura` | ✅ v1 |
+| Cultura y Talento | dinámicas y talleres · onboarding y desarrollo | ⏳ pendiente |
+| Agilidad / OPEX | `evaluacion-madurez-agil` | ✅ v1 |
+| Agilidad / OPEX | métricas de flujo y mejora continua · plan de transformación | ⏳ pendiente |
+| Tech | `diagnostico-digitalizacion` | ✅ v1 |
+| Tech | propuesta de solución con agentes | ⏳ pendiente |
+
+Todas las skills v1 están sin probar con casos reales: pásalas por sus evals (`evals/<skill>.json`) antes de usarlas con clientes.
 
 ## Pendiente
 - [ ] `precios.md` con el catálogo de tarifas (lo usa el subagente de propuestas)

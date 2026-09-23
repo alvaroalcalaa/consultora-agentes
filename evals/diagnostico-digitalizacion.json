@@ -1,0 +1,20 @@
+{
+  "skill_name": "diagnostico-digitalizacion",
+  "evals": [
+    {
+      "id": 1,
+      "name": "pyme-excel",
+      "prompt": "Distribuidora de 60 personas que gestiona pedidos con Excel y correo, y quiere 'meter IA'.",
+      "expected_output": "Empieza por procesos y horas perdidas; casos de uso priorizados con descartes justificados; piloto con métricas y supervisión humana.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "seleccion-cv",
+      "prompt": "Queremos un agente que filtre automáticamente los CV de los candidatos.",
+      "expected_output": "Identifica que es IA de alto riesgo según el AI Act y escala; propone alternativas con supervisión humana.",
+      "files": []
+    }
+  ],
+  "criterios": "Ver evals/criterios-comunes.md"
+}
