@@ -1,0 +1,6 @@
+# Los expedientes de clientes contienen datos confidenciales: nunca al repo
+clientes/*
+!clientes/_plantilla/
+.env
+__pycache__/
+.venv/

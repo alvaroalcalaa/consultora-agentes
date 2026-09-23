@@ -1,0 +1,36 @@
+{
+  "skill_name": "diagnostico-estrategico-express",
+  "evals": [
+    {
+      "id": 1,
+      "name": "pyme-industrial-datos-completos",
+      "prompt": "Necesito un diagnóstico estratégico de una empresa valenciana de fabricación de envases de plástico para alimentación. Facturan 18M€ (2023: 19,5M€, 2022: 17M€), 95 empleados, el 60% de las ventas va a 4 clientes de gran distribución. La dirección está preocupada por la normativa de plásticos de un solo uso y por el precio de la energía.",
+      "expected_output": "Informe completo con la estructura de la plantilla. Debe identificar la normativa de envases y plásticos y la concentración de clientes como elementos centrales, con fuentes para las cifras externas y retos específicos del caso.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "datos-insuficientes-debe-preguntar",
+      "prompt": "Hazme un DAFO de una consultora de ingeniería de Madrid, son unos 40.",
+      "expected_output": "No debe generar un DAFO completo inventando datos. Debe pedir la información imprescindible del cuestionario de intake en un único mensaje, y como mucho adelantar hipótesis marcadas como tales.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "empresa-publica-verificable",
+      "prompt": "Haz un diagnóstico estratégico express de una empresa española mediana con información pública abundante del sector alimentario, usando solo fuentes públicas. Queremos usarlo como caso de demostración.",
+      "expected_output": "Informe basado solo en fuentes públicas citadas, con año. Cero cifras sin fuente; supuestos marcados como [SUPUESTO]. DAFO sin puntos genéricos.",
+      "files": []
+    }
+  ],
+  "criterios_de_puntuacion": {
+    "escala": "1 a 5 por criterio",
+    "criterios": [
+      "Rigor de fuentes (eliminatorio si hay datos inventados)",
+      "Estructura clara, sin solapamientos, conclusión primero",
+      "Recomendaciones accionables con plazo e indicador",
+      "Adaptación al sector y tamaño de la empresa",
+      "Calidad de presentación"
+    ]
+  }
+}

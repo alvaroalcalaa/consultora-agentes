@@ -1,0 +1,7 @@
+claude-agent-sdk
+python-dotenv
+pandas
+openpyxl
+python-docx
+python-pptx
+matplotlib
