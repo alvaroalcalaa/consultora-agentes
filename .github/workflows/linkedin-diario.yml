@@ -1,0 +1,60 @@
+name: Borrador de post LinkedIn diario
+
+on:
+  schedule:
+    - cron: "0 6 * * 1-5"   # lunes a viernes, 06:00 UTC = 08:00 en Valencia (horario de verano)
+  workflow_dispatch:         # permite lanzarlo a mano desde la pestaña Actions
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  post-linkedin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Claude redacta el borrador
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --model claude-sonnet-5
+            --max-turns 15
+            --allowedTools Read,Write,Glob,Grep,WebSearch,WebFetch
+          prompt: |
+            Eres el responsable de contenido de una consultoría de negocio que trabaja con agentes de IA
+            supervisados por consultores humanos (áreas: Estrategia, Operaciones, Cultura y Talento,
+            Agilidad/OPEX y Tech). El objetivo de los posts es atraer a directivos de pymes y medianas
+            empresas españolas y generar conversaciones comerciales.
+
+            Tarea: escribe UN borrador de post de LinkedIn para hoy.
+
+            1. Lee los posts anteriores en contenido/linkedin/ para no repetir tema ni enfoque.
+            2. Elige un tema práctico apoyándote en las skills de .claude/skills/ (metodologías,
+               errores frecuentes, checklists). Alterna áreas a lo largo de la semana.
+            3. Si citas un dato o una noticia, búscalo y pon la fuente. Nunca inventes cifras.
+            4. Estilo: español, cercano y directo, primera persona. 150-250 palabras.
+               Primera línea que enganche, una idea útil y concreta, y cierre con una pregunta al lector.
+               Sin emojis en exceso, sin hashtags de relleno (máximo 3), sin tono de venta.
+            5. Nunca menciones clientes reales ni datos de clientes.
+
+            Guarda el resultado en contenido/linkedin/<fecha de hoy AAAA-MM-DD>.md con este formato:
+            ---
+            tema: <tema en una línea>
+            area: <área>
+            fuentes: <lista o "ninguna">
+            ---
+            <texto del post listo para copiar>
+
+      - name: Abrir Pull Request para revisión
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: contenido/linkedin-${{ github.run_id }}
+          commit-message: "Borrador post LinkedIn"
+          title: "📝 Borrador post LinkedIn"
+          body: "Revisa el post. Si te vale: Merge. Si no: Close. Nada se publica en LinkedIn automáticamente."
+          delete-branch: true

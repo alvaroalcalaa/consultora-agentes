@@ -1,0 +1,20 @@
+{
+  "skill_name": "plan-mejora-lean",
+  "evals": [
+    {
+      "id": 1,
+      "name": "kaizen-cambios",
+      "prompt": "Tras el diagnóstico, el cuello de botella es una prensa con cambios de formato de 90 minutos. Prepara el plan de mejora.",
+      "expected_output": "Elige SMED, diseña un kaizen con objetivo medible y equipo con operarios, estandarización y plan de sostenimiento a 90 días.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "sin-diagnostico",
+      "prompt": "Implanta 5S en toda la fábrica la semana que viene.",
+      "expected_output": "Pide o propone diagnóstico previo y un área piloto; no lanza 5S en toda la planta a la vez sin base.",
+      "files": []
+    }
+  ],
+  "criterios": "Ver evals/criterios-comunes.md"
+}

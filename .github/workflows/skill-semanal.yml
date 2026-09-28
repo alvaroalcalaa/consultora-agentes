@@ -1,0 +1,57 @@
+name: Borrador de skill semanal
+
+on:
+  schedule:
+    - cron: "0 5 * * 1"   # lunes, 05:00 UTC = 07:00 en Valencia (horario de verano)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  nueva-skill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Claude redacta la siguiente skill pendiente
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --model claude-sonnet-5
+            --max-turns 30
+            --allowedTools Read,Write,Edit,Glob,Grep,WebSearch,WebFetch
+          prompt: |
+            Trabajas en el repo de una consultoría de agentes. Lee README.md, CLAUDE.md,
+            evals/criterios-comunes.md y TODAS las skills de .claude/skills/ para entender el formato y el nivel.
+
+            Tarea: haz UNA de estas dos cosas.
+            A) Si en la tabla "Skills disponibles" del README hay alguna marcada como ⏳ pendiente,
+               redacta la primera siguiendo los pasos 2-5.
+            B) Si no hay ninguna pendiente, mejora UNA skill existente:
+               - Si evals/resultados.md tiene fallos anotados, elige la skill con más fallos y corrígelos.
+               - Si no, elige la skill con menos detalle o sin ejemplos y añade un ejemplo de entregable
+                 bien hecho y los errores frecuentes del área. Explica los cambios en el resumen del PR.
+               En el caso B no crees skills nuevas ni toques más de una skill.
+            1. (Caso A) Elige la skill pendiente.
+            2. Crea .claude/skills/<nombre-en-kebab-case>/SKILL.md siguiendo exactamente el estilo de las
+               existentes: frontmatter (name, description "insistente" que diga cuándo usarla),
+               principios, flujo por fases con los subagentes que intervienen, estructura del entregable,
+               checklist y límites (incluye privacidad, AI Act y escalado a humano cuando aplique).
+            3. Crea evals/<nombre>.json con 2 casos: uno normal y uno "trampa" que compruebe un límite.
+            4. Actualiza la tabla del README: la skill nueva pasa a "📝 borrador" (no a ✅).
+            5. No modifiques ninguna otra skill ni archivo.
+            Si citas marcos o normativa, que sean reales. No inventes datos.
+
+      - name: Abrir Pull Request para revisión
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: skills/borrador-${{ github.run_id }}
+          commit-message: "Borrador de skill nueva"
+          title: "🧩 Borrador de skill nueva"
+          body: "Revisa la skill antes de aceptarla. Idealmente, pruébala con sus evals antes de marcarla como ✅."
+          delete-branch: true
